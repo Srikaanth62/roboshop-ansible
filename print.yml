@@ -1,0 +1,6 @@
+- name: print values
+  hosts: all
+  tasks:
+    - name: print the message
+      ansible.builtin.debug:
+        msg: my name is srikaanth
