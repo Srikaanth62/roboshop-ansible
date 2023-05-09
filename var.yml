@@ -1,0 +1,16 @@
+- name: print variable for all tasks
+  hosts: all
+  vars:
+    company: private industry
+  tasks:
+    ansible.builtin.debug:
+      msg: Company {{ company }}
+
+
+- name: print vars for in the tasks
+    hosts: all
+    tasks:
+      ansible.builtin.debug:
+        msg: name is {{ person }}
+      vars:
+        person: Srikaanth
