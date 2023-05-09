@@ -6,11 +6,12 @@
     ansible.builtin.debug:
       msg: Company {{ company }}
 
+# print vars
 
 - name: print vars for in the tasks
-    hosts: all
-    tasks:
-      ansible.builtin.debug:
-        msg: name is {{ person }}
-      vars:
-        person: Srikaanth
+  hosts: all
+  tasks:
+    ansible.builtin.debug:
+      msg: name is {{ person }}
+    vars:
+      person: Srikaanth
