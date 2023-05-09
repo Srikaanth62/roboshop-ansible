@@ -7,14 +7,14 @@
       ansible.builtin.debug:
         msg: global vars is {{ URL }}
 
-- name: global vars printing
+- name: printing variable files
   hosts: all
   vars_file:
     - exvars.yml
   tasks:
     - name: print varibale files
       ansible.builtin.debug:
-        msg: global is {{ URL }}
+        msg: var file is {{ URL }}
 
 
 - name: local variable printing
