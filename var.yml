@@ -6,7 +6,6 @@
     ansible.builtin.debug:
       msg: Company {{ company }}
 
-# print vars
 
 - name: print vars for in the tasks
   hosts: all
