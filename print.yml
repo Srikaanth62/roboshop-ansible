@@ -1,4 +1,0 @@
-- name: print the roles
-  hosts: all
-  roles:
-    - sample

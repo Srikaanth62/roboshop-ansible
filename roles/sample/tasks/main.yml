@@ -1,4 +1,0 @@
-- name: print the name
-  ansible.builtin.debug:
-    msg: My name is Srikaanth from roles
-
