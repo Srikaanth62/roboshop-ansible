@@ -1,9 +1,3 @@
-
-
-#    systemctl enable nginx
-#    systemctl start nginx
-#    systemctl restart nginx
-
 - name: Install Nginx
   ansible.builtin.yum:
     name: nginx
