@@ -12,8 +12,8 @@
         name: mongodb-org-shell
         state: installed
 
-- name: schema loading
-  ansible.builtin.shell: mongo --host {{ lookup('aws_ssm', '{{ env }}.{{ component }}.mongo_endpoint', region='us-east-1' ) }} </app/schema/{{component}}.js
+    - name: schema loading
+      ansible.builtin.shell: mongo --host {{ lookup('aws_ssm', '{{ env }}.{{ component }}.mongo_endpoint', region='us-east-1' ) }} </app/schema/{{component}}.js
 
 
 
