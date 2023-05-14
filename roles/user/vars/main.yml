@@ -1,2 +1,2 @@
 component: user
-setup_schema: mongodb
+setup_schema: mongo
