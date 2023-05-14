@@ -20,3 +20,7 @@
   ansible.builtin.import_tasks:
     file: setup_schema.yml
 
+- name: import systemd task in play
+  ansible.builtin.import_tasks:
+    file: systemd_start.yml
+
