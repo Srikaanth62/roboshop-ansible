@@ -1,0 +1,15 @@
+- name: setup and copy mongodb repo file
+  ansible.builtin.copy:
+    src: mongo.repo
+    dest: /etc/yum.repos.d/mongo.repo
+  when: setup_schema == "mongo"
+
+- name: Install mongodb client
+  ansible.builtin.yum:
+    name: mongodb-org-shell
+    state: installed
+  when: setup_schema == "mongo"
+
+- name: load mongodb schema
+  ansible.builtin.shell: mongo --host dev.catalogue.mongo_endpoint  </app/schema/${{component}}.js
+  when: setup_schema == "mongo"
