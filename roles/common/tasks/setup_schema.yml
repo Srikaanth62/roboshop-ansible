@@ -1,5 +1,5 @@
 - name: Load mongo schema
-  when: setup_schema == "mongo"
+  when: setup_schema == "mongodb"
   block:
     - name: setup and copy mongodb repo file
       ansible.builtin.copy:
