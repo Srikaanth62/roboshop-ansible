@@ -1,9 +1,0 @@
-- name: read parameter store
-  hosts: localhost
-  connection: local
-  tasks:
-    - name: parameter store
-      ansible.builtin.debug:
-        msg: parameter is {{ lookup('aws_ssm', 'test.sri', region='us-east-1' ) }}
-
-
