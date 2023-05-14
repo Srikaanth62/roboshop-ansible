@@ -1,5 +1,5 @@
 - name: roboshop project
-  hosts: localhost
+  hosts: all
   connection: local
   become: yes
   roles:
