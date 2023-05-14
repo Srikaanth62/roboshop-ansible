@@ -1,2 +1,4 @@
-component: catalogue
-setup_schema: mongodb
+- name: catalogue component
+  component: catalogue
+- name: schema setup
+  setup_schema: mongo
