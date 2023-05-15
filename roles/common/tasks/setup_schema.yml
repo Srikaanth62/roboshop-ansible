@@ -16,9 +16,6 @@
       ansible.builtin.shell: mongo --host {{ lookup('aws_ssm', '{{ env }}.{{ component }}.mongo_endpoint', region='us-east-1' ) }} </app/schema/{{component}}.js
 
 
-#  print_head "Load the sql schema"
-#  mysql -h mysql-dev.srikaanth62.online -uroot -p${mysql_root_pwd} < /app/schema/${component}.sql  &>>$log_file
-#  func_exit_code $?
 - name: Loading mysql schema
   when: setup_schema == "mysql"
   block:
