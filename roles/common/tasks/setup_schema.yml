@@ -2,10 +2,9 @@
   when: setup_schema == "mongo"
   block:
     - name: setup and copy mongodb repo file
-      ansible.builtin.template:
+      ansible.builtin.copy:
         src: mongo.repo
         dest: /etc/yum.repos.d/mongo.repo
-        remote_src: yes
 
     - name: Install mongodb client
       ansible.builtin.yum:
