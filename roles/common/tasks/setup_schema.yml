@@ -3,17 +3,30 @@
   block:
     - name: setup and copy mongodb repo file
       ansible.builtin.template:
-       src: mongo.repo
-       dest: /etc/yum.repos.d/mongo.repo
-       remote_src: yes
+        src: mongo.repo
+        dest: /etc/yum.repos.d/mongo.repo
+        remote_src: yes
 
     - name: Install mongodb client
       ansible.builtin.yum:
         name: mongodb-org-shell
         state: installed
 
-    - name: schema loading
+    - name: mongo schema loading
       ansible.builtin.shell: mongo --host {{ lookup('aws_ssm', '{{ env }}.{{ component }}.mongo_endpoint', region='us-east-1' ) }} </app/schema/{{component}}.js
 
+
+#  print_head "Load the sql schema"
+#  mysql -h mysql-dev.srikaanth62.online -uroot -p${mysql_root_pwd} < /app/schema/${component}.sql  &>>$log_file
+#  func_exit_code $?
+- name: Loading mysql schema
+  when: setup_schema == "mysql"
+  block:
+   - name: Install sql client
+     ansible.builtin.yum:
+      name: mysql
+
+   - name: mysql schema loading
+     ansible.builtin.shell: mysql -h {{ lookup('aws_ssm', '{{ env }}.{{ component }}.db_host', region='us-east-1' ) }}  -u{{ lookup('aws_ssm', '{{ env }}.shipping.db_user', region='us-east-1' ) }} -p{{ lookup('aws_ssm', '{{ env }}.shipping.db_pass', region='us-east-1' ) }} < /app/schema/{{component}}.sql
 
 
