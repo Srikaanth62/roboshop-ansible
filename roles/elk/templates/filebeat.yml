@@ -1,9 +1,9 @@
-filebeat.inputs:
+  filebeat.inputs:
   - type: filestream
-    id: {{ component }}
+    id: {{component}}
     enabled: true
     paths:
-      - {{ log_file }}
+    - {{log_file}}
 
 output.logstash:
   hosts: ["172.31.87.59:5044"]
@@ -12,7 +12,7 @@ output.logstash:
 filebeat.config.modules:
   path: ${path.config}/modules.d/*.yml
   reload.enabled: false
-  setup.template.settings:
+setup.template.settings:
   index.number_of_shards: 1
 
 processors:
