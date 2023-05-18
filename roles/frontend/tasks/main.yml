@@ -30,5 +30,10 @@
     name: nginx
     enabled: true
 
+- name: Import Common NodeJS
+  ansible.builtin.import_role:
+    name: elk
+    tasks_from: filebeat
+
 
 
