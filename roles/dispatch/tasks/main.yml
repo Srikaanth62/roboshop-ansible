@@ -1,17 +1,4 @@
-- name: Install golang
-  ansible.builtin.yum:
-    name: golang
-    stated: installed
-
-- name: add user
+- name: Import Common golang
   ansible.builtin.import_role:
     name: common
-    tasks_from: add_user
-
-- name: Install and build golang dependencies
-  ansible.builtin.shell: go mod init {{component}} ; go get ; go build
-
-- name: start systemd service
-  ansible.builtin.import_role:
-    name: common
-    tasks_from: systemd_start
+    tasks_from: golang.yml
