@@ -12,7 +12,6 @@
   args:
     chdir: /app
 
-- name: start systemd service
-  ansible.builtin.import_role:
-    name: common
-    tasks_from: systemd_start
+- name: import systemd task in play
+  ansible.builtin.import_tasks:
+    file: systemd_start.yml
