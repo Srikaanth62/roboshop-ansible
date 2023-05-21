@@ -8,7 +8,9 @@
     file: add_user.yml
 
 - name: Install and build golang dependencies
-  ansible.builtin.shell: go mod init {{component}} ; go get ; go build
+  ansible.builtin.shell: go mod init dispatch ; go get ; go build
+  args:
+    chdir: /app
 
 - name: start systemd service
   ansible.builtin.import_role:
