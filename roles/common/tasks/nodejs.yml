@@ -11,10 +11,10 @@
   ansible.builtin.import_tasks:
    file: add_user.yml
 
-- name: Install nodejs dependencies
-  ansible.builtin.shell: npm install
-  args:
-   chdir: /app
+#- name: Install nodejs dependencies
+#  ansible.builtin.shell: npm install
+#  args:
+#   chdir: /app
 
 - name: import schema task in play
   ansible.builtin.import_tasks:
